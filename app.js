@@ -8,6 +8,8 @@ require('dotenv').config();
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var catalog = require('./routes/catalog'); // import routes for 'catalog' area of the site
+
 var config = require('./config');
 
 var app = express();
@@ -33,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/catalog', catalog); // add catalog routes to the middleware chain 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
